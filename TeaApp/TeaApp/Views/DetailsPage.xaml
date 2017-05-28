@@ -44,8 +44,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock Text="Name" Style="{StaticResource TitleTextBlock}" />
@@ -70,7 +68,7 @@
         <StackPanel Grid.Row="0" Grid.RowSpan="6">
             <Image Opacity="0.3" Source="{Binding Path=ImageSrc}" Stretch="UniformToFill"/>
         </StackPanel>
-        <Grid Grid.Row="6">
+        <Grid Grid.Row="5">
             <controls:Rating x:Name="Stars"                            
                              Maximum="5"                             
                              Value="{Binding StarsValue, Mode=TwoWay}"
@@ -82,18 +80,10 @@
                              FilledImage="ms-appx:///Assets/StarFull.png">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Tapped">
-                        <core:InvokeCommandAction Command="{Binding TappedCommand}"/>
+                        <core:InvokeCommandAction Command="{Binding TappedRatingCommand}"/>
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </controls:Rating>
-        </Grid>
-        <Grid Grid.Row="7">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="BackButton" Content="Back" Command="{Binding BackCommand}" Style="{StaticResource MyButton}"></Button>
-            <Button Grid.Column="1" x:Name="ReviewButton" Content="Review" Command="{Binding ReviewCommand}" Style="{StaticResource MyButton}"></Button>
         </Grid>
     </Grid>
 </Page>
