@@ -43,6 +43,7 @@ namespace UwpApp.ViewModels
             TappedRatingCommand = new RelayCommand(() =>
             {
                 _repository.Update(SelectedCity);
+                _startValue = 0;
                 _navigationService.GoBack();
             });
         }      

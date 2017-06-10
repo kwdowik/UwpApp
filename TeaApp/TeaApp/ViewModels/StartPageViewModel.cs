@@ -87,9 +87,9 @@ namespace UwpApp.ViewModels
 
         private void GetMoreCityDeatailsAction(TappedRoutedEventArgs e)
         {
-            var listViewItem = e.OriginalSource as ListViewItemPresenter;
-            if(listViewItem == null)
-                return;
+            dynamic listViewItem = e.OriginalSource as TextBlock;
+            if (listViewItem == null)
+                listViewItem = e.OriginalSource as ListViewItemPresenter;
             var city = listViewItem.DataContext as City;
             _dataProviderService.SelectedCity = _reposiotry.Read(city?.Id);
             _navigationService.NavigateTo("DetailsPage");
